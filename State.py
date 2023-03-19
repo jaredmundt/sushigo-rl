@@ -70,7 +70,7 @@ class State:
         for i in range(num_of_games):
             self.refresh_state()
             self.play(output_result=output_result, num_of_rounds=round_per_game)
-        # print(self.stats)
+        print(self.stats)
 
     def pass_around(self):
         tmp = self.players[-1].hand
@@ -95,8 +95,8 @@ if __name__ == '__main__':
     card_pool.extend([8] * 0)  # Tempura
 
     state = State(card_pool)
-    p1 = BasePlayer('Player 1', playstyle='random')
-    p2 = BasePlayer('Player 2', playstyle='random')
+    p1 = RandomPlayer('Player 1')
+    p2 = RandomPlayer('Player 2')
     state.add_player(p1)
     state.add_player(p2)
     state.play_games(1)
